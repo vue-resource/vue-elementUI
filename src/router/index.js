@@ -5,6 +5,8 @@ import Router from 'vue-router';
 import Login from '../components/page/Login';
 import Page from '../components/common/Page';
 import Readme from '../components/page/Readme';
+import ResetPwd from '../components/page/ResetPwd';
+import PersonalCenter from '../components/page/PersonalCenter';
 
 
 Vue.use(Router);
@@ -28,6 +30,14 @@ export default new Router({
 				{
 					path:'/readme',
 					component:Readme
+				},
+				{
+					path:'/resetPwd',
+					component:ResetPwd
+				},
+				{
+					path:'/PersonalCenter',
+					component:PersonalCenter
 				}
 			]
 		}

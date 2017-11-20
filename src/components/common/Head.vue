@@ -11,6 +11,7 @@
 				<el-dropdown-menu>
 					<el-dropdown-item command="know">了解该系统</el-dropdown-item>
 					<el-dropdown-item command="resetPwd">修改密码</el-dropdown-item>
+					<el-dropdown-item command="personalCenter">个人中心</el-dropdown-item>
 					<el-dropdown-item command="exit">退出</el-dropdown-item>
 				</el-dropdown-menu>
 			</el-dropdown>
@@ -29,6 +30,8 @@
 				}else if(command == "exit"){
 					localStorage.removeItem("user-name");
 					this.$router.push('/');
+				}else if(command == "personalCenter"){
+					this.$router.push('/PersonalCenter');
 				}
 			}
 		}
