@@ -1,11 +1,12 @@
 <template>
 	<div class="wrap">
 		<v-head>
-			<span slot="username">{{ username }}</span>
+			<span slot="username">{{ nickname }}</span>
+			<span slot="_username">{{ nickname }}</span>
 		</v-head>
 		<side-bar></side-bar>
 		<div class="page">
-			<router-view></router-view>
+			<transition name="fade" mode="out-in"><router-view></router-view></transition>
 		</div>
 	</div>
 </template>
@@ -21,7 +22,7 @@
 			}
 		},
 		computed:{
-			username (){
+			nickname (){
 				const _username = localStorage.getItem("user-name");
 				return _username || this.name;
 			}

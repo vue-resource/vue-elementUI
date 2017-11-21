@@ -1,6 +1,6 @@
 <template>
 	<div class="side-bar">
-		<el-menu :default-active="onRoutes" class="el-menu-vertical-demo">
+		<el-menu :default-active="onRoutes" class="el-menu-vertical-demo" theme="dark" unique-opened router>
 			<div v-for="(item,key) in items" :key="key">
 				<div v-if="item.children">
 					<el-submenu :index="item.index">
@@ -23,29 +23,28 @@
 	export default {
 		data () {
 			return {
-				items:[
-					{
-                        icon: 'el-icon-menu',
-                        index: 'table',
-                        title: '表格',
-                        children: [
-                            {
-                                index: 'basetable',
-                                title: '基础表格'
-                            },
-                            {
-                                index: 'vuetable',
-                                title: 'Vue表格组件'
-                            }
-                        ]
-                    }
-				]
+				url:'./static/data/sideBar.json', //生产模式的请求地址
+				items:[]
 			}
+		},
+		created () {
+			this.getData();
 		},
 		computed:{
 			onRoutes () {
 				return this.$route.path.replace('/','');
 			}
+		},
+		methods:{
+			getData () {
+				let self = this;
+				if(process.env.NODE_ENV === "development"){
+					self.url="/static/data/sideBar.json";
+				}
+				self.$axios.get(self.url).then((res) => {
+					self.items = res.data.slice(0)
+				})
+			},
 		}
 	}
 </script>

@@ -1,0 +1,13 @@
+[
+	{
+        "icon": "el-icon-menu",
+        "index": "table",
+        "title": "表格",
+        "children": [
+            {
+                "index": "elTable",
+                "title": "El表格组件"
+            }
+        ]
+    }
+]

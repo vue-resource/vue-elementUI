@@ -22,7 +22,26 @@ body{
     padding:40px;
     overflow-y: auto;
 }
+.fade-enter,.fade-leave{
+	opacity: 0;
+}
+.fade-enter-active,.fade-leave-active {
+	transition:opacity 1s;
+}
+
 /* 面包屑 */
 .bread-crumb{
 	margin-bottom: 20px;
+}
+/* 分页 */
+.pagination {
+	margin-top: 20px;
+}
+.pagination.center {
+	text-align: center;
+}
+
+/*margin && padding*/
+.ma-r-10 {
+	margin-right: 10px;
 }

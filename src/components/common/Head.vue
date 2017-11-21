@@ -6,7 +6,7 @@
 			<el-dropdown trigger="click" @command="handleCommand">
 				<div class="head-icon">
 					<img src="../../../static/img/head-icon.jpg"/>
-					<span class="username"><slot name="username"></slot></span>
+					<span class="username"><slot name="_username"></slot></span>
 				</div>
 				<el-dropdown-menu>
 					<el-dropdown-item command="know">了解该系统</el-dropdown-item>

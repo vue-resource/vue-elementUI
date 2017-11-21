@@ -7,6 +7,7 @@ import Page from '../components/common/Page';
 import Readme from '../components/page/Readme';
 import ResetPwd from '../components/page/ResetPwd';
 import PersonalCenter from '../components/page/PersonalCenter';
+import ElTable from '../components/page/ElTable';
 
 
 Vue.use(Router);
@@ -18,26 +19,29 @@ export default new Router({
 			redirect:'/login' //重定向
 		},
 		{
-			path:'/login',
+			path:'/login',//登陆
 			//component: resolve => require(['../components/page/Login.vue'],resolve)
-			name:'login',
 			component: Login
 		},
 		{
-			path:'/page',
+			path:'/page',//页面主体
 			component:Page,
 			children:[
 				{
-					path:'/readme',
+					path:'/readme',//关于系统
 					component:Readme
 				},
 				{
-					path:'/resetPwd',
+					path:'/resetPwd',//修改密码
 					component:ResetPwd
 				},
 				{
-					path:'/PersonalCenter',
+					path:'/PersonalCenter',//个人中心
 					component:PersonalCenter
+				},
+				{
+					path:'/elTable',//el风格table
+					component:ElTable
 				}
 			]
 		}
