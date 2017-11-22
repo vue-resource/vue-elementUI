@@ -7,16 +7,16 @@
 			</el-breadcrumb>
 		</div>
 		<div class="handle-area">
-			<el-button type="primary" icon="delete" class="ma-r-10">批量删除</el-button>
+			<el-button type="primary" icon="delete" class="ma-r-10" @click="delAll">批量删除</el-button>
 			<el-select v-model="proData" placeholder="请选择省份" class="handle-select ma-r-10">
-				<el-option key="0" value="全部"></el-option>
+				<el-option key="" value="全部"></el-option>
 				<el-option key="1" value="广东省"></el-option>
 				<el-option key="2" value="河北省"></el-option>
 			</el-select>
 			<el-input v-model="keyword" placeholder="请输入关键字" class="handle-input ma-r-10"></el-input>
-			<el-button type="primary" icon="search">查询</el-button>
+			<el-button type="primary" icon="search" @click="search">查询</el-button>
 		</div>
-		<el-table style="width:100%" border :data="_table" ref="multipleTable">
+		<el-table style="width:100%" border :data="_table" ref="multipleTable" @selection-change="handleSelectionChange">
 			<el-table-column width="50" type="selection"></el-table-column>
 			<el-table-column width="150" prop="date" sortable label="日期"></el-table-column>
 			<el-table-column width="100" prop="name" label="姓名"></el-table-column>
@@ -65,14 +65,7 @@
 			_table () {
 				const self = this;
 				return self.tableData.filter((item) => {
-					let status = false;
-					for(let i=0;i<self.del_item.length;i++){
-						if(item.name == self.del_item[i].name){
-							status = true;
-							break;
-						}
-					}
-					return !status && item.address.indexOf(self.proData) >-1 && (item.name.indexOf(self.keyword) >-1 || item.address.indexOf(self.keyword) >-1);
+					return item.address.indexOf(self.proData == "全部" ? "" : self.proData) >-1 && (item.name.indexOf(self.keyword) >-1 || item.address.indexOf(self.keyword) >-1);
 				});
 			}
 		},
@@ -85,7 +78,9 @@
 				self.$axios.get(self.table_url,{
 					params:{
 						pageIndex:self.pageNow,
-						pageSize:self.pagesize
+						pageSize:self.pagesize,
+						proName:self.proData,
+						keyword:self.keyword
 					}
 				}).then((res) => {
 					self.tableData = res.data.list.slice(0);
@@ -109,7 +104,28 @@
 				this.$message("编辑"+(index*1+1)+"第行！");
 			},
 			handleDel (index,row) {
-				
+				let self = this;
+				if(self.tableData.length == 1){
+					self.$message.error("至少保留一条");
+					return;
+				}
+				self.tableData.splice(index,1);
+			},
+			delAll () {
+				let self = this;
+				self.tableData.forEach((item,key) => {
+					self.del_item.forEach((subItem,subKey) => {
+						if(item.name == subItem.name){
+							self.tableData.splice(key,1);
+						}
+					});
+				})
+			},
+			handleSelectionChange (val){
+				this.del_item = val.slice(0)
+			},
+			search () {
+				this.getData();
 			}
 		}
 	}
