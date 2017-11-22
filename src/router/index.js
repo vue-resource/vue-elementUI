@@ -8,6 +8,7 @@ import Readme from '../components/page/Readme';
 import ResetPwd from '../components/page/ResetPwd';
 import PersonalCenter from '../components/page/PersonalCenter';
 import ElTable from '../components/page/ElTable';
+import DataSource from "../components/page/DataSource";
 
 
 Vue.use(Router);
@@ -42,6 +43,10 @@ export default new Router({
 				{
 					path:'/elTable',//el风格table
 					component:ElTable
+				},
+				{
+					path:'/dataSource',//vue表格组件
+					component:DataSource
 				}
 			]
 		}

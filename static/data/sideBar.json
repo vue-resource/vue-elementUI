@@ -7,6 +7,10 @@
             {
                 "index": "elTable",
                 "title": "El表格组件"
+            },
+            {
+            	"index": "dataSource",
+            	"title": "vue表格组件"
             }
         ]
     }
