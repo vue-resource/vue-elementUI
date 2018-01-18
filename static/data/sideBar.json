@@ -1,16 +1,27 @@
 [
 	{
         "icon": "el-icon-menu",
-        "index": "table",
+        "index": "/page/table",
         "title": "表格",
         "children": [
             {
-                "index": "elTable",
+                "index": "/page/table/elTable",
                 "title": "El表格组件"
             },
             {
-            	"index": "dataSource",
+            	"index": "/page/table/dataSource",
             	"title": "vue表格组件"
+            }
+        ]
+    },
+    {
+        "icon": "el-icon-upload2",
+        "index": "/page/else",
+        "title": "其它",
+        "children": [
+            {
+                "index": "/page/else/drag",
+                "title": "拖拽组件"
             }
         ]
     }

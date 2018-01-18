@@ -24,14 +24,14 @@
 		methods:{
 			handleCommand (command) {
 				if(command == "know"){
-					this.$router.push('/readme');
+					this.$router.push('/page/readme');
 				}else if(command == "resetPwd"){
-					this.$router.push('/resetPwd');
+					this.$router.push('/page/resetPwd');
 				}else if(command == "exit"){
 					localStorage.removeItem("user-name");
 					this.$router.push('/');
 				}else if(command == "personalCenter"){
-					this.$router.push('/PersonalCenter');
+					this.$router.push('/page/personalCenter');
 				}
 			}
 		}

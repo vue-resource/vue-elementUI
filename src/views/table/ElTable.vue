@@ -65,7 +65,7 @@
 			_table () {
 				const self = this;
 				return self.tableData.filter((item) => {
-					return item.address.indexOf(self.proData == "全部" ? "" : self.proData) >-1 && (item.name.indexOf(self.keyword) >-1 || item.address.indexOf(self.keyword) >-1);
+					return item.address.indexOf(self.proData||"") >-1 && (item.name.indexOf(self.keyword) >-1 || item.address.indexOf(self.keyword) >-1);
 				});
 			}
 		},

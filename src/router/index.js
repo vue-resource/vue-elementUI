@@ -2,13 +2,20 @@ import Vue from 'vue';
 import Router from 'vue-router';
 
 /* 以下为页面组件 */
-import Login from '../components/page/Login';
-import Page from '../components/common/Page';
-import Readme from '../components/page/Readme';
-import ResetPwd from '../components/page/ResetPwd';
-import PersonalCenter from '../components/page/PersonalCenter';
-import ElTable from '../components/page/ElTable';
-import DataSource from "../components/page/DataSource";
+import Login from '../views/page/Login';	//登录页
+import Page from '../components/page/Page';	//主页面模板
+import Readme from '../views/page/Readme';	//了解系统
+import ResetPwd from '../views/page/ResetPwd';//重置密码
+import PersonalCenter from '../views/page/PersonalCenter';	//个人中心
+
+//业务组件
+	//表格组件
+	import Empty from '../views/page/empty.vue';
+	import ElTable from '../views/table/ElTable'; //eleUI表格组件
+	import DataSource from "../views/table/DataSource";	//组定义表格组件
+
+	//其它组件
+	import Drag from '../views/else/drag.vue';
 
 
 Vue.use(Router);
@@ -27,26 +34,43 @@ export default new Router({
 		{
 			path:'/page',//页面主体
 			component:Page,
+			redirect:'/page/readme',
 			children:[
 				{
-					path:'/readme',//关于系统
+					path:'readme',
 					component:Readme
 				},
 				{
-					path:'/resetPwd',//修改密码
+					path:'resetPwd',
 					component:ResetPwd
 				},
 				{
-					path:'/PersonalCenter',//个人中心
+					path:'personalCenter',
 					component:PersonalCenter
 				},
 				{
-					path:'/elTable',//el风格table
-					component:ElTable
+					path:'table',//表格组件
+					component:Empty,
+					children:[
+						{
+							path:'elTable',
+							component:ElTable
+						},
+						{
+							path:'dataSource',
+							component:DataSource
+						}
+					]
 				},
 				{
-					path:'/dataSource',//vue表格组件
-					component:DataSource
+					path:'else',//表格组件
+					component:Empty,
+					children:[
+						{
+							path:'drag',
+							component:Drag
+						}
+					]
 				}
 			]
 		}
