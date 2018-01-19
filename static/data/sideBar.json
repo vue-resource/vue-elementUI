@@ -15,6 +15,28 @@
         ]
     },
     {
+        "icon": "el-icon-star-on",
+        "index": "/page/chart",
+        "title": "图表",
+        "children": [
+            {
+                "index": "/page/chart/sChart",
+                "title": "vue-schart"
+            }
+        ]
+    },
+    {
+        "icon": "el-icon-setting",
+        "index": "/page/form",
+        "title": "表单",
+        "children": [
+            {
+                "index": "/page/form/baseform",
+                "title": "基本表单组件"
+            }
+        ]
+    },
+    {
         "icon": "el-icon-upload2",
         "index": "/page/else",
         "title": "其它",
