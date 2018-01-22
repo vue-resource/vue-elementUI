@@ -19,6 +19,8 @@ import PersonalCenter from '../views/page/PersonalCenter';	//个人中心
 
 	//表单组件
 	import Baseform from "../views/form/baseform.vue";
+	import ExtendForm from "../views/form/extendform.vue";
+	import RegisterDone from "../views/form/registerDone.vue";
 
 	//其它组件
 	import Drag from '../views/else/drag.vue';
@@ -95,6 +97,14 @@ export default new Router({
 						{
 							path:'baseform',
 							component:Baseform
+						},
+						{
+							path:'extendForm',
+							component:ExtendForm
+						},
+						{
+							path:'registerDone',
+							component:RegisterDone
 						}
 					]
 				}
