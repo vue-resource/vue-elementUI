@@ -22,6 +22,13 @@ import PersonalCenter from '../views/page/PersonalCenter';	//个人中心
 	import ExtendForm from "../views/form/extendform.vue";
 	import RegisterDone from "../views/form/registerDone.vue";
 
+	//上传组件
+	import BaseUpload from "../views/upload/BaseUpload.vue";//点击上传
+	import Picwall from "../views/upload/picwall.vue";
+	import Piclist from "../views/upload/piclist.vue";
+	import DragUpload from "../views/upload/dragUpload.vue";
+	import ClipUpload from "../views/upload/clipUpload.vue";
+
 	//其它组件
 	import Drag from '../views/else/drag.vue';
 
@@ -105,6 +112,32 @@ export default new Router({
 						{
 							path:'registerDone',
 							component:RegisterDone
+						}
+					]
+				},
+				{
+					path:'upload',//上传组件
+					component:Empty,
+					children:[
+						{
+							path:'baseUpload',
+							component:BaseUpload
+						},
+						{
+							path:'picwall',
+							component:Picwall
+						},
+						{
+							path:'piclist',
+							component:Piclist
+						},
+						{
+							path:'dragUpload',
+							component:DragUpload
+						},
+						{
+							path:'clipUpload',
+							component:ClipUpload
 						}
 					]
 				}

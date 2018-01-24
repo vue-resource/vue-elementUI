@@ -37,6 +37,21 @@
         ]
     },
     {
+        "icon": "el-icon-setting",
+        "index": "/page/upload",
+        "title": "上传组件",
+        "children": [
+           {
+                "index": "/page/upload/baseUpload",
+                "title": "elementUI上传组件"
+            },
+            {
+                "index": "/page/upload/clipUpload",
+                "title": "裁剪上传组件"
+            }
+        ]
+    },
+    {
         "icon": "el-icon-upload2",
         "index": "/page/else",
         "title": "其它",
