@@ -34,7 +34,6 @@
             	</div>
             	<div class="btn-box">
             		<el-button type="text" icon="el-icon-arrow-left" @click="prev">上一页</el-button>
-  					<el-button type="text" @click="next">下一页</el-button>
             	</div>
             </div>
         </div>

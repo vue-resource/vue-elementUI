@@ -59,6 +59,25 @@
         ]
     },
     {
+        "icon": "el-icon-setting",
+        "index": "/page/tools",
+        "title": "工具类",
+        "children": [
+           {
+                "index": "/page/tools/tag",
+                "title": "tag标签"
+            },
+            {
+                "index": "/page/tools/badge",
+                "title": "badge提示"
+            },
+            {
+                "index": "/page/tools/pagination",
+                "title": "分页"
+            }
+        ]
+    },
+    {
         "icon": "el-icon-upload2",
         "index": "/page/else",
         "title": "其它",

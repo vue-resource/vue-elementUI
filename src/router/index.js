@@ -39,6 +39,11 @@ import PersonalCenter from '../views/page/PersonalCenter';	//个人中心
 	import DragUpload from "../views/upload/dragUpload.vue";
 	import ClipUpload from "../views/upload/clipUpload.vue";
 
+	//工具类
+	import Tag from "../views/tools/Tag.vue";
+	import Badge from "../views/tools/Badge.vue";
+	import Pagination from "../views/tools/Pagination.vue";
+
 	//其它组件
 	import Drag from '../views/else/drag.vue';
 
@@ -120,7 +125,7 @@ export default new Router({
 					]
 				},
 				{
-					path:'else',//表格组件
+					path:'else',//其它组件
 					component:Empty,
 					children:[
 						{
@@ -130,7 +135,7 @@ export default new Router({
 					]
 				},
 				{
-					path:'chart',//图标组件
+					path:'chart',//图表组件
 					component:Empty,
 					children:[
 						{
@@ -183,6 +188,24 @@ export default new Router({
 						{
 							path:'clipUpload',
 							component:ClipUpload
+						}
+					]
+				},
+				{
+					path:'tools',//工具组件
+					component:Empty,
+					children:[
+						{
+							path:'tag',
+							component:Tag
+						},
+						{
+							path:'badge',
+							component:Badge
+						},
+						{
+							path:'pagination',
+							component:Pagination
 						}
 					]
 				}
