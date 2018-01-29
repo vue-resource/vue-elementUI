@@ -4,6 +4,10 @@
         "index": "/page/table",
         "title": "表格",
         "children": [
+        	{
+                "index": "/page/table/ele",
+                "title": "elementUI表格组件"
+            },
             {
                 "index": "/page/table/elTable",
                 "title": "El表格组件"
@@ -33,6 +37,9 @@
             {
                 "index": "/page/form/baseform",
                 "title": "基本表单组件"
+            },{
+                "index": "/page/form/formTest",
+                "title": "表单验证"
             }
         ]
     },

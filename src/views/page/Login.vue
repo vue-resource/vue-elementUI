@@ -45,14 +45,31 @@
 				self.$refs[formname].validate(
 					(valid) => {
 						if(valid){
-							localStorage.setItem('user-name',self.userInfo.username);
-							self.$router.push('./page');
+							self.testUser();
 						}else{
 							console.error("登陆失败");
 							return false;
 						}
 					}
 				)
+			},
+			testUser () {
+				const self = this;
+	            if(process.env.NODE_ENV === 'development'){
+	                self.url = 'static/data/account.json';
+	            };
+	            self.$axios.get(self.url).then( (res) => {
+	               	let rel = res.data.some(item => {
+	               		return item.name == self.userInfo.username && item.password == self.userInfo.userpwd;
+	               	});
+	               	if(rel){
+	               		localStorage.setItem('user-name',self.userInfo.username);
+	               		localStorage.setItem('user-pwd',self.userInfo.userpwd);
+						self.$router.push('./page');
+	               	}else{
+	               		self.$message.warning("账号或者密码有误");
+	               	}
+	            });
 			}
 		}
 	}

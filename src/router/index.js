@@ -11,6 +11,15 @@ import PersonalCenter from '../views/page/PersonalCenter';	//个人中心
 //业务组件
 	//表格组件
 	import Empty from '../views/page/empty.vue';
+	import Table from '../views/table/Table.vue';
+	import FixedTable from "../views/table/FixedTable.vue";
+	import Multistage from "../views/table/Multistage.vue";
+	import CheckTable from "../views/table/CheckTable.vue";
+	import SortTable from "../views/table/SortTable.vue";
+	import ExpandTable from "../views/table/ExpandTable.vue";
+	import AddUpTable from "../views/table/AddUpTable.vue";
+	import MergeTable from "../views/table/mergeTable.vue";
+
 	import ElTable from '../views/table/ElTable'; //eleUI表格组件
 	import DataSource from "../views/table/DataSource";	//组定义表格组件
 
@@ -21,6 +30,7 @@ import PersonalCenter from '../views/page/PersonalCenter';	//个人中心
 	import Baseform from "../views/form/baseform.vue";
 	import ExtendForm from "../views/form/extendform.vue";
 	import RegisterDone from "../views/form/registerDone.vue";
+	import FormTest from "../views/form/formTest.vue";
 
 	//上传组件
 	import BaseUpload from "../views/upload/BaseUpload.vue";//点击上传
@@ -68,6 +78,38 @@ export default new Router({
 					component:Empty,
 					children:[
 						{
+							path:'ele',
+							component:Table
+						},
+						{
+							path:'fixedTable',
+							component:FixedTable
+						},
+						{
+							path:'multistage',
+							component:Multistage
+						},
+						{
+							path:'checkTable',
+							component:CheckTable
+						},
+						{
+							path:'sortTable',
+							component:SortTable
+						},
+						{
+							path:'expandTable',
+							component:ExpandTable
+						},
+						{
+							path:'addUpTable',
+							component:AddUpTable
+						},
+						{
+							path:'mergeTable',
+							component:MergeTable
+						},
+						{
 							path:'elTable',
 							component:ElTable
 						},
@@ -112,6 +154,9 @@ export default new Router({
 						{
 							path:'registerDone',
 							component:RegisterDone
+						},{
+							path:'formTest',
+							component:FormTest
 						}
 					]
 				},
