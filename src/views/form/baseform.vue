@@ -7,6 +7,9 @@
             </el-breadcrumb>
             <div class="info-input-area">
             	<h2>请填写你的基本信息，方便平台上做资质审核~~</h2><hr>
+            	<div>
+					<step :steps="steps"></step>            		
+            	</div>
             	<el-form :model="form" :rules="rules" ref="form" label-width="150px">
             		<el-form-item class="item" prop="name" label="昵称：">
             			<el-input v-model="form.name" placeholder="请输入昵称"  clearable></el-input>
@@ -105,6 +108,7 @@
 </template>
 
 <script type="text/javascript">
+	import Step from "components/Step";
 	var checkEle = ["1","2","3","4"];
 	export default {
 		data () {
@@ -143,9 +147,16 @@
 				loading:false,
 				paperType:[],
 				address:[],
-				levelList:[]
-				
+				levelList:[],
+				steps:[
+					{title:"基本表单",desc:"介绍表单的基本控件"},
+					{title:"扩展表单",desc:"介绍一些稍微高级的表单运用，如时间，颜色 ……"},
+					{title:"评价效果",desc:"如评价效果展示"}
+				]
 			}
+		},
+		components:{
+			Step
 		},
 		methods:{
 			querySearch (query,cb) {

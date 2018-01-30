@@ -39,13 +39,25 @@ import PersonalCenter from '../views/page/PersonalCenter';	//个人中心
 	import DragUpload from "../views/upload/dragUpload.vue";
 	import ClipUpload from "../views/upload/clipUpload.vue";
 
+	//消息通知组件
+	import Alert from "../views/notice/Alert.vue";
+	import Message from "../views/notice/Message.vue";
+	import Notification from "../views/notice/Notification.vue";
+	import Loading from "../views/notice/Loading.vue";
+	import Dialog from "../views/notice/Dialog.vue";
+	import Tip from "../views/notice/Tip.vue";
+	import Popover from "../views/notice/Popover.vue";
+
 	//工具类
 	import Tag from "../views/tools/Tag.vue";
 	import Badge from "../views/tools/Badge.vue";
 	import Pagination from "../views/tools/Pagination.vue";
+	import Progress from "../views/tools/Progress.vue";
+	import Step from "../views/tools/Step.vue";
 
 	//其它组件
 	import Drag from '../views/else/drag.vue';
+	import Tree from "../views/else/Tree.vue";
 
 
 Vue.use(Router);
@@ -131,6 +143,10 @@ export default new Router({
 						{
 							path:'drag',
 							component:Drag
+						},
+						{
+							path:'tree',
+							component:Tree
 						}
 					]
 				},
@@ -206,6 +222,43 @@ export default new Router({
 						{
 							path:'pagination',
 							component:Pagination
+						},
+						{
+							path:'progress',
+							component:Progress
+						},
+						{
+							path:'step',
+							component:Step
+						}
+					]
+				},
+				{
+					path:'notice',
+					component:Empty,
+					children:[
+						{
+							path:'alert',
+							component:Alert
+						},
+						{
+							path:'message',
+							component:Message
+						},{
+							path:"notification",
+							component:Notification
+						},{
+							path:"loading",
+							component:Loading
+						},{
+							path:"dialog",
+							component:Dialog
+						},{
+							path:'tip',
+							component:Tip
+						},{
+							path:'popover',
+							component:Popover
 						}
 					]
 				}

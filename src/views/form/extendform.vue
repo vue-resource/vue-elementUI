@@ -8,6 +8,9 @@
         </div>
         <div class="info-input-area">
             <h2>在本页面你需要设置一下下面的选项，对您将来的店铺展示很有帮助呦~~</h2><hr>
+            <div>
+				<step :steps="steps" :active="1"></step>            		
+        	</div>
             <el-form :model="form" :rules="rules" ref="form" label-width="150px">
             	<el-form-item class="item" label="店铺发货时间：">
         			<el-time-select placeholder="起始时间" prop="deliverStart" v-model="form.deliverStart" :picker-options="{start: '08:00',step: '00:15',end: '18:00',maxTime:form.deliverEnd}"></el-time-select>
@@ -49,6 +52,7 @@
 </template>
 
 <script type="text/javascript">
+	import Step from "components/Step";
 	export default {
 		data () {
 			return {
@@ -91,8 +95,16 @@
 							}
 						}
 					]
-				}
+				},
+				steps:[
+					{title:"基本表单",desc:"介绍表单的基本控件"},
+					{title:"扩展表单",desc:"介绍一些稍微高级的表单运用，如时间，颜色 ……"},
+					{title:"评价效果",desc:"如评价效果展示"}
+				]
 			}
+		},
+		components:{
+			Step
 		},
 		mounted () {
 			const self = this;

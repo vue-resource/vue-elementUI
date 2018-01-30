@@ -8,6 +8,9 @@
 		</div>
 		<div class="page-body">
             <h2>本节将要强势介绍elementUI的强大表格组件，具体有多强大，不妨往下看~~</h2><hr>
+            <div>
+            	<step :steps="steps" :active="1" :simple="true"></step>
+            </div>
             <div class="data-show">
             	<div class="title">带边框，斑马线(含自定义颜色)的表格</div>
             	<div class="data-box">
@@ -28,6 +31,7 @@
 </template>
 	
 <script>
+	import Step from "components/Step";
 	export default {
 		data () {
 			return {
@@ -35,11 +39,24 @@
 				config:{
 					stripe:true,//带斑马线
 					border:true
-				}
+				},
+				steps:[
+					{title:"带边框斑马线表格"},
+					{title:"固定头和列"},
+					{title:"多级表头"},
+					{title:"单选复选表格"},
+					{title:"排序筛选表格"},
+					{title:"可展开表格"},
+					{title:"表尾合计"},
+					{title:"合并行或列"}
+				]
 			}
 		},
 		created () {
 			this.getData();
+		},
+		components:{
+			Step
 		},
 		methods:{
 			getData () {

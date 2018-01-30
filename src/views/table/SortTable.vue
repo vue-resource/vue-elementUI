@@ -8,6 +8,9 @@
 		</div>
 		<div class="page-body">
             <h2>本节将要强势介绍elementUI的强大表格组件，具体有多强大，不妨往下看~~</h2><hr>
+            <div>
+            	<step :steps="steps" :active="5" :simple="true"></step>
+            </div>
             <div class="data-show">
             	<div class="data-box">
             		<div class="title">表格排序</div>
@@ -68,6 +71,7 @@
 </template>
 	
 <script>
+	import Step from "components/Step";
 	export default {
 		data () {
 			return {
@@ -79,11 +83,24 @@
 				filter:[
 					{text:"北京",value:"北京"},
 					{text:"广东",value:"广东"}
+				],
+				steps:[
+					{title:"带边框斑马线表格"},
+					{title:"固定头和列"},
+					{title:"多级表头"},
+					{title:"单选复选表格"},
+					{title:"排序筛选表格"},
+					{title:"可展开表格"},
+					{title:"表尾合计"},
+					{title:"合并行或列"}
 				]
 			}
 		},
 		created () {
 			this.getData();
+		},
+		components:{
+			Step
 		},
 		methods:{
 			getData () {

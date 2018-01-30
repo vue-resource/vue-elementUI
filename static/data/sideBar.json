@@ -60,6 +60,35 @@
     },
     {
         "icon": "el-icon-setting",
+        "index": "/page/notice",
+        "title": "通知组件",
+        "children": [
+            {
+                "index": "/page/notice/alert",
+                "title": "alert警告"
+            }, {
+                "index": "/page/notice/message",
+                "title": "message通知"
+            },{
+                "index": "/page/notice/notification",
+                "title": "系统通知"
+            },{
+                "index": "/page/notice/loading",
+                "title": "数据加载"
+            },{
+                "index": "/page/notice/dialog",
+                "title": "对话框"
+            },{
+                "index": "/page/notice/tip",
+                "title": "信息提示框"
+            },{
+                "index": "/page/notice/popover",
+                "title": "多功能弹出框"
+            }
+        ]
+    },
+    {
+        "icon": "el-icon-setting",
         "index": "/page/tools",
         "title": "工具类",
         "children": [
@@ -74,6 +103,12 @@
             {
                 "index": "/page/tools/pagination",
                 "title": "分页"
+            },{
+                "index": "/page/tools/progress",
+                "title": "进度条"
+            },{
+                "index": "/page/tools/step",
+                "title": "步骤引导组件"
             }
         ]
     },
@@ -85,6 +120,9 @@
             {
                 "index": "/page/else/drag",
                 "title": "拖拽组件"
+            }, {
+                "index": "/page/else/tree",
+                "title": "树形组件"
             }
         ]
     }

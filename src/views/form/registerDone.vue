@@ -8,6 +8,9 @@
         </div>
         <div class="info-input-area">
             <h2>感觉效果还不错，给个评价吧~~</h2><hr>
+            <div>
+				<step :steps="steps" :active="active"></step>            		
+        	</div>
             <el-form :model="form" :rules="rules" ref="form" label-width="150px">
             	<el-form-item class="item" label="卖家服务态度："props="storeCore">
             		<el-rate v-model="form.storeCore" show-text></el-rate>
@@ -27,6 +30,7 @@
 </template>
 
 <script type="text/javascript">
+	import Step from "components/Step";
 	export default {
 		data () {
 			return {
@@ -39,13 +43,23 @@
 					storeCore:[],
 					deliverCore:[],
 					deliveryCore:[]
-				}
+				},
+				active:2,
+				steps:[
+					{title:"基本表单",desc:"介绍表单的基本控件"},
+					{title:"扩展表单",desc:"介绍一些稍微高级的表单运用，如时间，颜色 ……"},
+					{title:"评价效果",desc:"如评价效果展示"}
+				]
 			}
+		},
+		components:{
+			Step
 		},
 		computed:{
 			finalCore:{
 				get: function () {
 			    	if(this.form.storeCore >0 && this.form.deliveryCore > 0 && this.form.deliverCore > 0){
+			    		this.active = 3;
 						return ((this.form.storeCore +this.form.deliverCore + this.form.deliveryCore)/3).toFixed(2);
 					}
 			    },

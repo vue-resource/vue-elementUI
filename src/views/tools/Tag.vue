@@ -39,6 +39,7 @@
 						type:self.type[idx]
 					});
 					self.inputValue = "";
+					self.inputVisible = !self.inputVisible;
 				}		
 			},
 			handleClose (item) {

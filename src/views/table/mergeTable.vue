@@ -8,6 +8,9 @@
 		</div>
 		<div class="page-body">
             <h2>本节将要强势介绍elementUI的强大表格组件，具体有多强大，不妨往下看~~</h2><hr>
+            <div>
+            	<step :steps="steps" :active="8" :simple="true"></step>
+            </div>
             <div class="data-show">
             	<div class="title">合并列</div>
             	<div>通过给table传入span-method方法可以实现合并行或列，方法的参数是一个对象，里面包含当前行row、当前列column、当前行号rowIndex、当前列号columnIndex四个属性。该函数可以返回一个包含两个元素的数组，第一个元素代表rowspan，第二个元素代表colspan。 也可以返回一个键名为rowspan和colspan的对象。</div>
@@ -41,6 +44,7 @@
 </template>
 	
 <script>
+	import Step from "components/Step";
 	export default {
 		data () {
 			return {
@@ -78,8 +82,21 @@
 				config:{
 					stripe:true,//带斑马线
 					border:true
-				}
+				},
+				steps:[
+					{title:"带边框斑马线表格"},
+					{title:"固定头和列"},
+					{title:"多级表头"},
+					{title:"单选复选表格"},
+					{title:"排序筛选表格"},
+					{title:"可展开表格"},
+					{title:"表尾合计"},
+					{title:"合并行或列"}
+				]
 			}
+		},
+		components:{
+			Step
 		},
 		methods:{
 			arraySpanMethod({ row, column, rowIndex, columnIndex }) {
