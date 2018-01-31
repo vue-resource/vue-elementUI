@@ -55,9 +55,28 @@ import PersonalCenter from '../views/page/PersonalCenter';	//个人中心
 	import Progress from "../views/tools/Progress.vue";
 	import Step from "../views/tools/Step.vue";
 
+	//控制面板组件
+	import Collapse from "../views/panel/Collapse.vue";
+	import Card from "../views/panel/Card.vue";
+
+	//菜单类
+	import Dropdown from "../views/menu/Dropdown.vue";
+	import Navmenu from "../views/menu/Navmenu.vue";
+	import Tab from "../views/menu/Tab.vue";
+
 	//其它组件
 	import Drag from '../views/else/drag.vue';
 	import Tree from "../views/else/Tree.vue";
+	import Carousel from "../views/else/Carousel.vue";
+
+	//layout 布局
+	import Layout from "../views/layout/Layout.vue";
+
+	//全局介绍
+	import Font from "../views/overall/Font.vue";
+	import Color from "../views/overall/Color.vue";
+	import Icon from "../views/overall/Icon.vue";
+	import Button from "../views/overall/Button.vue";
 
 
 Vue.use(Router);
@@ -147,6 +166,9 @@ export default new Router({
 						{
 							path:'tree',
 							component:Tree
+						},{
+							path:"carousel",
+							component:Carousel
 						}
 					]
 				},
@@ -259,6 +281,61 @@ export default new Router({
 						},{
 							path:'popover',
 							component:Popover
+						}
+					]
+				},{
+					path:'panel',
+					component:Empty,
+					children:[
+						{
+							path:'collapse',
+							component:Collapse
+						},{
+							path:'card',
+							component:Card
+						}
+					]
+				},{
+					path:'menu',
+					component:Empty,
+					children:[
+						{
+							path:'dropdown',
+							component:Dropdown
+						},{
+							path:'navmenu',
+							component:Navmenu
+						},{
+							path:'tab',
+							component:Tab
+						}
+					]
+				},{
+					path:'layout',
+					component:Empty,
+					redirect:'/page/layout/index',
+					children:[
+						{
+							path:'index',
+							component:Layout
+						}
+					]
+				},{
+					path:'overall',
+					component:Empty,
+					children:[
+						{
+							path:'font',
+							component:Font
+						},{
+							path:'color',
+							component:Color
+						},{
+							path:'icon',
+							component:Icon
+						},{
+							path:'button',
+							component:Button
 						}
 					]
 				}

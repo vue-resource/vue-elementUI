@@ -45,6 +45,37 @@
     },
     {
         "icon": "el-icon-setting",
+        "index": "/page/menu",
+        "title": "菜单",
+        "children": [
+            {
+                "index": "/page/menu/dropdown",
+                "title": "下拉菜单"
+            },{
+                "index": "/page/menu/navmenu",
+                "title": "导航菜单"
+            },{
+                "index": "/page/menu/tab",
+                "title": "Tab切换"
+            }
+        ]
+    },
+    {
+    	"icon": "el-icon-setting",
+        "index": "/page/panel",
+        "title": "面板",
+        "children": [
+            {
+                "index": "/page/panel/collapse",
+                "title": "折叠面板"
+            },{
+                "index": "/page/panel/card",
+                "title": "小卡片"
+            }
+        ]
+    },
+    {
+        "icon": "el-icon-setting",
         "index": "/page/upload",
         "title": "上传组件",
         "children": [
@@ -123,6 +154,9 @@
             }, {
                 "index": "/page/else/tree",
                 "title": "树形组件"
+            },{
+            	"index": "/page/else/carousel",
+                "title": "走马灯效果展示"
             }
         ]
     }

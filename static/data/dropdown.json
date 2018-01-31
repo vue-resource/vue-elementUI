@@ -1,0 +1,8 @@
+[
+	{"name":"男装","category":"man"},
+	{"name":"女装","category":"women"},
+	{"name":"童装","category":"child"},
+	{"name":"手机","divided":true,"category":"phone"},
+	{"name":"相机","category":"camera"},
+	{"name":"电视","disabled":true,"category":"television"}
+]

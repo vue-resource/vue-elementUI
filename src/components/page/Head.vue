@@ -12,15 +12,36 @@
 					<el-dropdown-item command="know">了解该系统</el-dropdown-item>
 					<el-dropdown-item command="resetPwd">修改密码</el-dropdown-item>
 					<el-dropdown-item command="personalCenter">个人中心</el-dropdown-item>
-					<el-dropdown-item command="exit">退出</el-dropdown-item>
+					<el-dropdown-item command="exit" divided>退出</el-dropdown-item>
 				</el-dropdown-menu>
 			</el-dropdown>
+		</div>
+		<div class="menu">
+			<el-menu :default-active="activeIndex" mode="horizontal" @select="handleSelect" @open="handleOpen" @close="handleClose"
+			  background-color="#242f42" text-color="#fff" active-text-color="#ffd04b" router>
+			  <el-menu-item index="/page/layout">布局相关</el-menu-item>
+			  <el-submenu index="2" :show-timeout="300" :hide-timeout="150">
+			    <template slot="title">全局参考</template>
+			    <el-menu-item index="/page/overall/font" >字体</el-menu-item>
+			    <el-menu-item index="/page/overall/color" >颜色</el-menu-item>
+			    <el-menu-item index="/page/overall/icon">图标</el-menu-item>
+			    <el-menu-item index="/page/overall/button">按钮</el-menu-item>
+			  </el-submenu>
+			  <el-menu-item>
+			  	<el-badge :value="12">系统消息</el-badge>
+			  </el-menu-item>
+			</el-menu>
 		</div>
 	</div>
 </template>
 
 <script type="text/javascript">
 	export default {
+		data () {
+			return {
+				activeIndex:"/page/layout"
+			}
+		},
 		methods:{
 			handleCommand (command) {
 				if(command == "know"){
@@ -33,12 +54,21 @@
 				}else if(command == "personalCenter"){
 					this.$router.push('/page/personalCenter');
 				}
+			},
+			handleSelect (key, keyPath) {
+
+			},
+			handleOpen (key, keyPath) {
+
+			},
+			handleClose (key, keyPath) {
+
 			}
 		}
 	}
 </script>
 
-<style scoped>
+<style>
 	.header {
         position: relative;
         width: 100%;
@@ -79,5 +109,14 @@
     }
     .el-dropdown-menu__item{
         text-align: center;
+    }
+    .menu {
+    	display: inline-block;
+    	float: right;
+    	padding-top: 5px;
+    	margin-right: 30px;
+    }
+    .el-badge__content.is-fixed{
+    	top:10px!important;
     }
 </style>

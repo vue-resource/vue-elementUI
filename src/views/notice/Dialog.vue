@@ -7,11 +7,62 @@
             </el-breadcrumb>
             <div class="info-input-area">
             	<h2>模拟系统的消息提示框而实现的一套模态对话框组件，用于消息提示、确认消息和提交内容~~</h2><hr>
+            	<h3>模拟系统的3种经典对话框</h3>
             	<div class="item">
             		<el-button plain @click="openAlert">消息提示</el-button>
             		<el-button plain @click="openConfirm">确认消息</el-button>
             		<el-button plain @click="openPromp">提交内容</el-button>
-            		<el-button plain @click="openSelf">自定义</el-button>
+            	</div>
+            	<hr>
+            	<h3>自定义对话框</h3>
+            	<div class="item">
+            		<el-button plain @click="baseVisible = true">基本用法</el-button>
+            		<el-button plain @click="tableVisible = true">嵌套表格</el-button>
+            		<el-button plain @click="formVisible = true">嵌套表单</el-button>
+            		<el-button plain @click="outerVisible = true">嵌套dialog</el-button>
+
+            		<el-dialog title="基本对话框"  :visible.sync="baseVisible"   width="30%" :before-close="handleClose" center>
+					  <span>这是一段信息</span>
+					  <span slot="footer" class="dialog-footer">
+					    <el-button @click="baseVisible = false">取 消</el-button>
+					    <el-button type="primary" @click="baseVisible = false">确 定</el-button>
+					  </span>
+					</el-dialog> 
+
+					<el-dialog :visible.sync="tableVisible">
+					  <el-table :data="gridData">
+					    <el-table-column property="date" label="日期" width="150"></el-table-column>
+					    <el-table-column property="name" label="姓名" width="200"></el-table-column>
+					    <el-table-column property="address" label="地址"></el-table-column>
+					  </el-table>
+					  <span slot="title">收货地址列表(<span class="font-warning">无按钮</span>)</span>
+					</el-dialog> 
+
+					<el-dialog title="收货地址添加" :visible.sync="formVisible">
+					  <el-form :model="form">
+					    <el-form-item label="活动名称：" :label-width="formLabelWidth">
+					      <el-input v-model="form.name" auto-complete="off"></el-input>
+					    </el-form-item>
+					    <el-form-item label="活动区域" :label-width="formLabelWidth">
+					      <el-select v-model="form.region" placeholder="请选择活动区域">
+					        <el-option label="区域一" value="shanghai"></el-option>
+					        <el-option label="区域二" value="beijing"></el-option>
+					      </el-select>
+					    </el-form-item>
+					  </el-form>
+					  <div slot="footer" class="dialog-footer">
+					    <el-button @click="formVisible = false">取 消</el-button>
+					    <el-button type="primary" @click="formVisible = false">确 定</el-button>
+					  </div>
+					</el-dialog>
+
+					<el-dialog title="外层 Dialog" :visible.sync="outerVisible">
+					    <el-dialog width="30%" title="内层 Dialog" :visible.sync="innerVisible" append-to-body></el-dialog>
+					    <div slot="footer" class="dialog-footer">
+					      <el-button @click="outerVisible = false">取 消</el-button>
+					      <el-button type="primary" @click="innerVisible = true">打开内层 Dialog</el-button>
+					    </div>
+					</el-dialog>
             	</div>
             </div>
         </div>
@@ -22,7 +73,40 @@
 	export default {
 		data () {
 			return {
-				show:false
+				show:false,
+				baseVisible:false,
+				tableVisible:false,
+				formVisible:false,
+				outerVisible:false,
+				innerVisible:false,
+				gridData: [{
+		          date: '2016-05-02',
+		          name: '王小虎',
+		          address: '上海市普陀区金沙江路 1518 弄'
+		        }, {
+		          date: '2016-05-04',
+		          name: '王小虎',
+		          address: '上海市普陀区金沙江路 1518 弄'
+		        }, {
+		          date: '2016-05-01',
+		          name: '王小虎',
+		          address: '上海市普陀区金沙江路 1518 弄'
+		        }, {
+		          date: '2016-05-03',
+		          name: '王小虎',
+		          address: '上海市普陀区金沙江路 1518 弄'
+		        }],
+		        form: {
+		          name: '',
+		          region: '',
+		          date1: '',
+		          date2: '',
+		          delivery: false,
+		          type: [],
+		          resource: '',
+		          desc: ''
+		        },
+		        formLabelWidth:"120px"
 			}
 		},
 		methods:{
@@ -84,10 +168,17 @@
 					});
 				})
 			},
-			openSelf () {
-				this.$alert('<strong>这是 <i>HTML</i> 片段</strong>', 'HTML 片段', {
-		        	dangerouslyUseHTMLString: true
-		        });
+			handleClose () {
+				let self = this;
+				self.$confirm("你确定要关闭此操作吗").then(()=>{
+					self.$message({
+						message:"好吧，在下输了",
+						type:"success"
+					});
+					self.baseVisible = false;
+				}).catch(()=>{
+
+				})
 			}
 		}
 	}
@@ -96,5 +187,13 @@
 <style type="text/css" scoped>
 	.item{
 		margin-top: 20px;
+		padding-bottom: 20px;
+	}
+	h3{
+		color:#ff3333;
+		line-height: 50px;
+	}
+	.font-warning{
+		color:#ff3333;
 	}
 </style>
