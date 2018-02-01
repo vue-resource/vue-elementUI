@@ -71,12 +71,15 @@ import PersonalCenter from '../views/page/PersonalCenter';	//个人中心
 
 	//layout 布局
 	import Layout from "../views/layout/Layout.vue";
+	import Container from "../views/layout/Container.vue";
 
 	//全局介绍
 	import Font from "../views/overall/Font.vue";
 	import Color from "../views/overall/Color.vue";
 	import Icon from "../views/overall/Icon.vue";
 	import Button from "../views/overall/Button.vue";
+
+	import Demo from "../views/layout/Demo.vue";
 
 
 Vue.use(Router);
@@ -91,6 +94,10 @@ export default new Router({
 			path:'/login',//登陆
 			//component: resolve => require(['../components/page/Login.vue'],resolve)
 			component: Login
+		},
+		{
+			path:'/demo',
+			component:Demo
 		},
 		{
 			path:'/page',//页面主体
@@ -318,6 +325,10 @@ export default new Router({
 						{
 							path:'index',
 							component:Layout
+						},
+						{
+							path:'container',
+							component:Container
 						}
 					]
 				},{

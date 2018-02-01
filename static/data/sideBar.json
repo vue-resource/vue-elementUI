@@ -30,7 +30,7 @@
         ]
     },
     {
-        "icon": "el-icon-setting",
+        "icon": "el-icon-date",
         "index": "/page/form",
         "title": "表单",
         "children": [
@@ -44,7 +44,7 @@
         ]
     },
     {
-        "icon": "el-icon-setting",
+        "icon": "el-icon-menu",
         "index": "/page/menu",
         "title": "菜单",
         "children": [
@@ -61,7 +61,7 @@
         ]
     },
     {
-    	"icon": "el-icon-setting",
+    	"icon": "el-icon-view",
         "index": "/page/panel",
         "title": "面板",
         "children": [
@@ -75,7 +75,7 @@
         ]
     },
     {
-        "icon": "el-icon-setting",
+        "icon": "el-icon-upload",
         "index": "/page/upload",
         "title": "上传组件",
         "children": [
@@ -90,7 +90,7 @@
         ]
     },
     {
-        "icon": "el-icon-setting",
+        "icon": "el-icon-document",
         "index": "/page/notice",
         "title": "通知组件",
         "children": [
@@ -119,7 +119,7 @@
         ]
     },
     {
-        "icon": "el-icon-setting",
+        "icon": "el-icon-delete",
         "index": "/page/tools",
         "title": "工具类",
         "children": [
@@ -144,7 +144,7 @@
         ]
     },
     {
-        "icon": "el-icon-upload2",
+        "icon": "el-icon-more",
         "index": "/page/else",
         "title": "其它",
         "children": [

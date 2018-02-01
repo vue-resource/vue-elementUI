@@ -5,7 +5,7 @@
 		<div class="user-info">
 			<el-dropdown trigger="click" @command="handleCommand">
 				<div class="head-icon">
-					<img src="../../../static/img/head-icon.jpg"/>
+					<img :src="thumbImg"/>
 					<span class="username"><slot name="_username"></slot></span>
 				</div>
 				<el-dropdown-menu>
@@ -19,7 +19,9 @@
 		<div class="menu">
 			<el-menu :default-active="activeIndex" mode="horizontal" @select="handleSelect" @open="handleOpen" @close="handleClose"
 			  background-color="#242f42" text-color="#fff" active-text-color="#ffd04b" router>
-			  <el-menu-item index="/page/layout">布局相关</el-menu-item>
+			  <el-menu-item index="/page/layout">
+			  	布局相关
+			  </el-menu-item>
 			  <el-submenu index="2" :show-timeout="300" :hide-timeout="150">
 			    <template slot="title">全局参考</template>
 			    <el-menu-item index="/page/overall/font" >字体</el-menu-item>
@@ -27,11 +29,15 @@
 			    <el-menu-item index="/page/overall/icon">图标</el-menu-item>
 			    <el-menu-item index="/page/overall/button">按钮</el-menu-item>
 			  </el-submenu>
-			  <el-menu-item>
+			  <el-menu-item  v-popover:popoverT>
+			  	<el-popover ref="popoverT"  placement="bottom-end" title="提示"  width="100" trigger="hover"
+				  content="这里将展示最新的系统通知消息。">
+				</el-popover>
 			  	<el-badge :value="12">系统消息</el-badge>
 			  </el-menu-item>
 			</el-menu>
 		</div>
+		
 	</div>
 </template>
 
@@ -39,7 +45,8 @@
 	export default {
 		data () {
 			return {
-				activeIndex:"/page/layout"
+				activeIndex:"/page/layout",
+				thumbImg:require('static/img/head-icon.jpg')
 			}
 		},
 		methods:{
